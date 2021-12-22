@@ -154,6 +154,7 @@ apple_id {
 sign {
   application_identity = "Developer ID Application: Mitchell Hashimoto"
   deep = false
+  keychain = "login.keychain"
 }
 
 dmg {
@@ -176,7 +177,8 @@ zip {
     },
     "sign" :{
         "application_identity" : "Developer ID Application: Mitchell Hashimoto",
-        "deep": false
+        "deep": false,
+        "keychain": "login.keychain"
     },
     "dmg" :{
         "output_path":  "terraform.dmg",
@@ -225,6 +227,8 @@ Supported configurations:
       certificate to use to sign applications. This accepts any valid value for the `-s`
       flag for the `codesign` binary on macOS. See `man codesign` for detailed
       documentation on accepted values.
+    
+    * `keychain` (`string`) - The name or path of the keychain to lookup the `application_identity`.
 
     * `deep` (`bool` _optional_) - If true, the `--deep` flag is used, which will recursively
     codesign any directory paths (such as an *.app directory, for example.) Has no effect on
