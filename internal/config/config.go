@@ -68,6 +68,8 @@ type Sign struct {
 	// ApplicationIdentity is the ID or name of the certificate to
 	// use for signing binaries. This is used for all binaries in "source".
 	ApplicationIdentity string `hcl:"application_identity"`
+	// Specify a path or a name of the keychain to use.
+	Keychain string `hcl:"keychain,optional"`
 	// Specify a path to an entitlements file in plist format
 	EntitlementsFile string `hcl:"entitlements_file,optional"`
 	// Specific to request a --deep codesigning.

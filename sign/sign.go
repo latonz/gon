@@ -24,6 +24,9 @@ type Options struct {
 	// be in a variety of forms.
 	Identity string
 
+	// Keychain is an (optional) path or name of a keychain to use.
+	Keychain string
+
 	// Entitlements is an (optional) path to a plist format .entitlements file
 	Entitlements string
 
@@ -82,6 +85,10 @@ func Sign(ctx context.Context, opts *Options) error {
 
 	if opts.Deep {
 		cmd.Args = append(cmd.Args, "--deep")
+	}
+
+	if opts.Keychain != "" {
+		cmd.Args = append(cmd.Args, "--keychain", opts.Keychain)
 	}
 
 	// Append the files that we want to sign
